@@ -30,3 +30,7 @@ coverage/
 
 # mac
 .DS_Store
+
+# SPECIFIC TO THIS REPO
+# background images for gen
+backgroundImages/images
