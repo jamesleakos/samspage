@@ -6,7 +6,7 @@ export const HomePageStyled = styled.div`
   width: 100vw;
 
   // background image
-  background-position: center right;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

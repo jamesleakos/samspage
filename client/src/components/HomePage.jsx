@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 // internal
 // css
 import { HomePageStyled } from './styles/HomePage.styled.js';
 // components
 import Search from './Search.jsx';
+// image urls
+import randomURL from '../helpers/randomImageURL.js';
 
 // shading the background image
 const formatImageLink = (link) => {
@@ -16,13 +19,28 @@ function HomePage() {
     window.scrollTo(0, 0);
   }, []);
 
+  const url = `https://ik.imagekit.io/hfywj4j0a/tr:w-2500/images/${randomURL()}`;
+
+  console.log(url);
+
+  // DEPRECATED: now we just ping the imagekit CDN
+  // useEffect(() => {
+  //   axios
+  //     .get('/image/random')
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       if (typeof res.data === 'string') setUrl(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
   return (
     <HomePageStyled
       className='home-page'
       style={{
-        backgroundImage: formatImageLink(
-          'https://ik.imagekit.io/hfywj4j0a/SamsPage/SamInSedona.JPG'
-        ),
+        backgroundImage: formatImageLink(url),
       }}
     >
       <div className='main-content'>

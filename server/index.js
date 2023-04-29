@@ -7,7 +7,7 @@ const express = require('express');
 const cors = require('cors');
 
 // routers
-const testRouter = require('./routers/test.js');
+const imageRouter = require('./routers/images.js');
 
 // express app
 const app = express();
@@ -23,7 +23,8 @@ app.use(cors({ origin: '*' }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 //routes
-app.use('/test', testRouter);
+// we don't actually use this anymore - we use the imagekit CDN instead
+// app.use('/image', imageRouter);
 
 // needed to send the base files
 app.get('/*', function (req, res) {
