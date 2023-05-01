@@ -713,7 +713,6 @@ const urls = [
   "IMG_3590.jpeg",
   "IMG_3590.jpg",
   "IMG_3615.jpeg",
-  "IMG_3624.jpg",
   "IMG_3634.jpeg",
   "IMG_3642.jpg",
   "IMG_3656.jpg",
