@@ -36,6 +36,19 @@ function HomePage() {
   //     });
   // }, []);
 
+  const [randomWM, setRandomWM] = useState(null);
+  useEffect(() => {
+    axios
+      .get('https://jamesleakos.com/posts/ext/random')
+      .then((res) => {
+        console.log(res.data);
+        if (typeof res.data === 'string') setRandomWM(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <HomePageStyled
       className='home-page'
@@ -47,6 +60,14 @@ function HomePage() {
         <Search />
         <div className='content-info'>Days ran in a row: 456</div>
         <div className='content-info'>Miles ran this year: 2234</div>
+        {!!randomWM && (
+          <a
+            href={`https://jamesleakos.com/post-viewer/${randomWM}`}
+            className='content-info'
+          >
+            Random Wolfmoor Article
+          </a>
+        )}
       </div>
     </HomePageStyled>
   );
