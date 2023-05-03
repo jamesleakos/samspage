@@ -19,9 +19,9 @@ function HomePage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const url = `https://ik.imagekit.io/hfywj4j0a/tr:w-2500/images/${randomURL()}`;
-
-  console.log(url);
+  const [url, setUrl] = useState(
+    `https://ik.imagekit.io/hfywj4j0a/tr:w-2500/images/${randomURL()}`
+  );
 
   // DEPRECATED: now we just ping the imagekit CDN
   // useEffect(() => {
@@ -52,9 +52,11 @@ function HomePage() {
   return (
     <HomePageStyled
       className='home-page'
-      style={{
-        backgroundImage: formatImageLink(url),
-      }}
+      style={
+        !!url && {
+          backgroundImage: formatImageLink(url),
+        }
+      }
     >
       <div className='main-content'>
         <Search />
